@@ -1,0 +1,576 @@
+/* ============================================================
+   soccer.css — From-scratch stylesheet for Conner's Soccer page
+   BYU Color Theme: Navy, Gold, White
+   Assignment requirements met:
+     - 4+ style definitions ✓
+     - Font color specified ✓
+     - Font family specified ✓
+     - 3+ divs for positioning ✓
+   ============================================================ */
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS Variables ── */
+:root {
+  --navy:        #001F5B;
+  --navy-dark:   #001540;
+  --navy-mid:    #002472;
+  --navy-light:  #003080;
+  --gold:        #c8a96e;
+  --gold-light:  #e0c48a;
+  --white:       #ffffff;
+  --off-white:   #f0f4ff;
+  --muted:       #7fa0d4;
+  --border:      #1a3a8a;
+
+  --font-display: 'Georgia', serif;
+  --font-body:    system-ui, -apple-system, sans-serif;
+}
+
+/* ── Base ── */
+body {
+  background-color: var(--navy);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--gold-light);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Navigation ── */
+.site-nav {
+  background-color: var(--navy-dark);
+  border-bottom: 2px solid var(--gold);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.nav-logo span {
+  color: var(--gold);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* ── Hero Section ── */
+.hero {
+  background-color: var(--navy-dark);
+  background-image:
+    radial-gradient(ellipse at 70% 50%, rgba(0, 45, 180, 0.25) 0%, transparent 60%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 58px,
+      rgba(255,255,255,0.015) 58px,
+      rgba(255,255,255,0.015) 60px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 58px,
+      rgba(255,255,255,0.015) 58px,
+      rgba(255,255,255,0.015) 60px
+    );
+  padding: 90px 40px 80px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 8vw, 80px);
+  font-weight: bold;
+  line-height: 1.05;
+  color: var(--white);
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+  display: block;
+}
+
+/* ── Hero Jersey ── */
+.hero-jersey {
+  margin: 10px auto 0;
+  max-width: 200px;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.hero-jersey:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.jersey-svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ── Hero Stats ── */
+.section {
+  padding: 72px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: bold;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.section-divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ── My Story Section ── */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.story-text p {
+  color: var(--off-white);
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.story-text p:last-child {
+  margin-bottom: 0;
+}
+
+.story-highlights {
+  background-color: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 6px;
+  padding: 28px;
+}
+
+.story-highlights h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* Ordered list embedded in unordered list (assignment requirement) */
+.highlights-list {
+  list-style: none;
+  padding: 0;
+}
+
+.highlights-list > li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--off-white);
+  font-size: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.highlights-list > li:last-child {
+  border-bottom: none;
+}
+
+.highlights-list > li::before {
+  content: '▸';
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Nested ordered list inside an unordered list (assignment: embedded list) */
+.highlights-list .nested-ordered {
+  list-style: decimal;
+  padding-left: 20px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.highlights-list .nested-ordered li {
+  padding: 3px 0;
+}
+
+/* ── Favorite Team Section ── */
+.team-section {
+  background-color: var(--navy-dark);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.team-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 72px 40px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  margin-top: 32px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.team-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.fact-card {
+  background-color: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 22px;
+  text-align: center;
+}
+
+.fact-card .fact-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.fact-card h4 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.fact-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── Position & Style Section ── */
+.position-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.position-text p {
+  color: var(--off-white);
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+/* Pitch diagram div */
+.pitch-diagram {
+  background-color: var(--navy-mid);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 28px;
+  text-align: center;
+}
+
+.pitch-diagram h3 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.pitch-svg-wrap {
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* CB traits list */
+.traits-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 24px;
+}
+
+.traits-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--off-white);
+  font-size: 15px;
+}
+
+.traits-list li:last-child {
+  border-bottom: none;
+}
+
+.trait-badge {
+  background-color: var(--gold);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Memories Section ── */
+.memories-section {
+  background-color: var(--navy-dark);
+  border-top: 1px solid var(--border);
+}
+
+.memories-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 72px 40px;
+}
+
+.memories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.memory-card {
+  background-color: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px 24px;
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.memory-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.memory-year {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--gold);
+  opacity: 0.25;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.memory-card h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.memory-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.memory-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  padding: 3px 8px;
+  opacity: 0.7;
+}
+
+/* ── On-page anchor target highlight ── */
+:target {
+  scroll-margin-top: 70px;
+}
+
+/* ── Footer ── */
+.site-footer {
+  background-color: var(--navy-dark);
+  border-top: 2px solid var(--gold);
+  padding: 28px 40px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+.site-footer a {
+  color: var(--gold);
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .story-grid,
+  .position-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .team-facts,
+  .memories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 60px 20px 50px;
+  }
+
+  .section,
+  .team-inner,
+  .memories-inner {
+    padding: 48px 20px;
+  }
+
+  .hero-stats {
+    gap: 28px;
+  }
+
+  .site-nav {
+    padding: 14px 20px;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

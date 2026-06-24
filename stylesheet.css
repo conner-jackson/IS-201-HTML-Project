@@ -1,0 +1,344 @@
+/* ============================================================
+   sixdle.css — Stylesheet for Sixdle (6-Letter Wordle)
+   BYU Color Theme: Navy, Royal Blue, Gold, White
+   ============================================================ */
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS Variables / Design Tokens ── */
+:root {
+  --bg:           #001F5B;   /* BYU navy */
+  --surface:      #002472;   /* slightly lighter navy */
+  --border:       #1a3a8a;
+  --text:         #ffffff;   /* white */
+  --muted:        #7fa0d4;
+  --gold:         #c8a96e;   /* BYU gold */
+
+  --correct:      #002DB4;   /* BYU royal blue — correct position */
+  --present:      #5b85d0;   /* mid blue — present but wrong spot */
+  --absent:       #00174a;   /* dark navy — absent */
+  --key-bg:       #003080;   /* key background blue */
+
+  --tile-size:    58px;
+  --gap:          6px;
+  --radius:       4px;
+  --font-display: 'Georgia', serif;
+  --font-ui:      system-ui, sans-serif;
+}
+
+/* ── Base ── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Header ── */
+header {
+  width: 100%;
+  max-width: 520px;
+  padding: 18px 16px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 6px;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+.header-sub {
+  position: absolute;
+  right: 16px;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── Toast Notification ── */
+#toast {
+  position: fixed;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+#toast.show {
+  opacity: 1;
+}
+
+/* ── Board Area ── */
+#board-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px 10px;
+}
+
+#board {
+  display: grid;
+  grid-template-rows: repeat(7, var(--tile-size));
+  gap: var(--gap);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(6, var(--tile-size));
+  gap: var(--gap);
+}
+
+/* ── Tile ── */
+.tile {
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--text);
+  background: transparent;
+  user-select: none;
+  transition: border-color 0.05s;
+  position: relative;
+}
+
+.tile[data-letter] {
+  border-color: #555;
+  animation: pop 0.08s ease;
+}
+
+.tile.revealed {
+  border-color: transparent;
+  animation: flip 0.5s ease forwards !important;
+}
+
+/* Stagger flip animation per column */
+.row .tile:nth-child(1).revealed { animation-delay: 0.00s; }
+.row .tile:nth-child(2).revealed { animation-delay: 0.10s; }
+.row .tile:nth-child(3).revealed { animation-delay: 0.20s; }
+.row .tile:nth-child(4).revealed { animation-delay: 0.30s; }
+.row .tile:nth-child(5).revealed { animation-delay: 0.40s; }
+.row .tile:nth-child(6).revealed { animation-delay: 0.50s; }
+
+/* Tile state colors */
+.tile.correct { --tile-color: var(--correct); }
+.tile.present { --tile-color: var(--present); }
+.tile.absent  { --tile-color: var(--absent);  }
+
+.tile.shake {
+  animation: shake 0.4s ease;
+}
+
+.tile.bounce {
+  animation: bounce 0.6s ease;
+}
+
+/* ── Tile Animations ── */
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+@keyframes flip {
+  0%   { transform: rotateX(0deg);  background: transparent; }
+  49%  { transform: rotateX(90deg); background: transparent; }
+  50%  { transform: rotateX(90deg); background: var(--tile-color); border-color: var(--tile-color); }
+  100% { transform: rotateX(0deg);  background: var(--tile-color); border-color: var(--tile-color); }
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  15%     { transform: translateX(-6px); }
+  30%     { transform: translateX(6px); }
+  45%     { transform: translateX(-5px); }
+  60%     { transform: translateX(5px); }
+  75%     { transform: translateX(-3px); }
+  90%     { transform: translateX(3px); }
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  40%     { transform: translateY(-18px); }
+  60%     { transform: translateY(-8px); }
+}
+
+/* ── On-screen Keyboard ── */
+#keyboard {
+  width: 100%;
+  max-width: 520px;
+  padding: 0 8px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.kb-row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.key {
+  height: 56px;
+  min-width: 38px;
+  padding: 0 6px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--key-bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.key.wide {
+  min-width: 58px;
+  font-size: 11px;
+}
+
+.key:active {
+  filter: brightness(0.85);
+}
+
+/* Key state colors */
+.key.correct { background: var(--correct); color: #ffffff; }
+.key.present { background: var(--present); color: #ffffff; }
+.key.absent  { background: var(--absent);  color: var(--muted); }
+
+/* ── End Game Overlay ── */
+#end-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+
+#end-overlay.show {
+  display: flex;
+}
+
+.end-card {
+  background: var(--surface);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 36px 40px;
+  text-align: center;
+  max-width: 340px;
+  width: 90%;
+}
+
+.end-card h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.end-card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.end-word {
+  font-size: 28px;
+  font-family: var(--font-display);
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: var(--text);
+  margin: 14px 0;
+  text-transform: uppercase;
+}
+
+.end-card button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.end-card button:hover {
+  filter: brightness(1.1);
+}
+
+/* ── Responsive (mobile) ── */
+@media (max-width: 400px) {
+  :root {
+    --tile-size: 46px;
+    --gap: 4px;
+  }
+
+  .key {
+    height: 46px;
+    min-width: 30px;
+    font-size: 11px;
+  }
+
+  .key.wide {
+    min-width: 46px;
+  }
+
+  .logo {
+    font-size: 22px;
+    letter-spacing: 4px;
+  }
+}

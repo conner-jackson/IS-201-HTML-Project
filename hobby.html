@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soccer – Conner Jackson</title>
+  <link rel="stylesheet" href="soccer.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="site-nav">
+    <div class="nav-logo">Conner <span>Jackson</span></div>
+    <ul class="nav-links">
+      <li><a href="resume.html">Résumé</a></li>
+      <li><a href="#my-story">My Story</a></li>
+      <li><a href="#favorite-team">Man City</a></li>
+      <li><a href="#position">Position</a></li>
+      <li><a href="#memories">Memories</a></li>
+      <li><a href="wordle.html">Sixdle</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <p class="hero-eyebrow">A Lifelong Passion</p>
+    <h1>The Beautiful <em>Game</em></h1>
+    <p class="hero-sub">
+      Soccer has shaped who I am — the friendships I've built, the leadership I've developed,
+      and the memories that will last a lifetime.
+    </p>
+    <!-- SVG Jersey -->
+    <div class="hero-jersey">
+      <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" class="jersey-svg">
+        <!-- Left sleeve -->
+        <polygon points="0,30 55,15 65,75 15,80" fill="#6CABDD" stroke="#fff" stroke-width="1.5"/>
+        <!-- Right sleeve -->
+        <polygon points="220,30 165,15 155,75 205,80" fill="#6CABDD" stroke="#fff" stroke-width="1.5"/>
+        <!-- Main body -->
+        <path d="M55,15 C75,5 100,0 110,0 C120,0 145,5 165,15 L175,180 L45,180 Z" fill="#6CABDD" stroke="#fff" stroke-width="1.5"/>
+        <!-- Collar -->
+        <path d="M88,2 Q110,18 132,2" fill="none" stroke="#fff" stroke-width="3"/>
+        <!-- Name -->
+        <text x="110" y="55" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold"
+              font-family="Georgia, serif" letter-spacing="3">JACKSON</text>
+        <!-- Number -->
+        <text x="110" y="118" text-anchor="middle" fill="#ffffff" font-size="72" font-weight="bold"
+              font-family="Georgia, serif">3</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── My Story ── -->
+  <div id="my-story" class="section">
+    <p class="section-label">01 — My Story</p>
+    <h2 class="section-title">More Than Just a Sport</h2>
+    <hr class="section-divider" style="margin-bottom: 40px;" />
+
+    <div class="story-grid">
+      <div class="story-text">
+        <p>
+          Soccer has been the single most constant thread running through my life. Before I knew
+          what a career was, before I understood leadership or teamwork in any formal sense,
+          I understood them on a pitch. I understood that the person next to you is counting on
+          you, and that your job isn't to be the loudest player — it's to be the most reliable one.
+        </p>
+        <p>
+          Some of my closest friends today are people I met through soccer. There's something about
+          playing together — grinding through pre-season, celebrating a win, picking each other up
+          after a loss — that builds a kind of trust you can't manufacture anywhere else.
+        </p>
+        <p>
+          I captained the Lone Peak High School team, an experience that taught me how to lead
+          people who are just as competitive as you are. It's a different kind of leadership
+          than managing a team in a business context — it's immediate, physical, and deeply
+          personal. Those lessons have followed me into every room I've walked into since.
+        </p>
+        <p>
+          At BYU, I brought that same mentality to intramural soccer and came away with a
+          championship in 2025. The level may be different, but the joy of competing with
+          people you care about never changes.
+        </p>
+      </div>
+
+      <div class="story-highlights">
+        <h3>Career Highlights</h3>
+        <!-- Unordered list with embedded ordered list (assignment requirement) -->
+        <ul class="highlights-list">
+          <li>
+            <span>
+              Lone Peak High School — Team Captain
+              <ol class="nested-ordered">
+                <li>Led team culture and pre-game preparation</li>
+                <li>All-State Academic recognition (Utah 6A)</li>
+              </ol>
+            </span>
+          </li>
+          <li>BYU Intramural Champion, 2025</li>
+          <li>Witnessed Messi live at the 2018 FIFA World Cup in Russia</li>
+          <li>Lifelong Manchester City supporter</li>
+          <li>Center back — the defensive backbone of every team I've played on</li>
+          <li>Made most of my closest friendships through the game</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Favorite Team ── -->
+  <div class="team-section">
+    <div id="favorite-team" class="team-inner">
+      <p class="section-label">02 — Favorite Team</p>
+      <h2 class="section-title">Manchester City FC</h2>
+      <p style="color: var(--muted); max-width: 600px; margin-bottom: 8px;">
+        The Citizens. Premier League royalty. The club that plays the most relentless,
+        tactically brilliant soccer in the world. When Pep Guardiola arrived and rebuilt
+        this club into a European powerhouse, he was speaking my language — possession,
+        structure, and pressing without mercy.
+      </p>
+
+      <!-- Embedded YouTube video (from Man City's official channel) -->
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/QRoiPhUEYdI"
+          title="Manchester City — Season Highlights"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Fact cards -->
+      <div class="team-facts">
+        <div class="fact-card">
+          <div class="fact-icon">🏆</div>
+          <h4>Titles</h4>
+          <p>9 Premier League titles, including 4 in a row (2021–2024)</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">⚽</div>
+          <h4>The Treble</h4>
+          <p>2023 Champions League, Premier League, and FA Cup — historic</p>
+        </div>
+        <div class="fact-card">
+          <div class="fact-icon">🎯</div>
+          <h4>The Manager</h4>
+          <p>Pep Guardiola — the greatest tactical mind in modern football</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Position & Style ── -->
+  <div id="position" class="section">
+    <p class="section-label">03 — Position &amp; Style</p>
+    <h2 class="section-title">Life at Center Back</h2>
+    <hr class="section-divider" style="margin-bottom: 40px;" />
+
+    <div class="position-grid">
+      <div class="position-text">
+        <p>
+          Center back is the position that most people don't notice until something goes wrong.
+          That suits me. My job is to read the game two plays ahead, organize the defensive
+          line, and make sure the chaos in front of me never reaches the goalkeeper.
+          When I do my job well, it's invisible.
+        </p>
+        <p>
+          Playing CB has sharpened my spatial awareness, my ability to stay calm under
+          pressure, and my communication. You can't defend well in silence — you're
+          constantly directing, warning, adjusting. It's a position that demands
+          both physical composure and mental clarity at the same time.
+        </p>
+        <p>
+          My favorite CB in the world right now is Rúben Dias of Manchester City —
+          a player who combines elite reading of the game with vocal leadership and
+          a relentless work rate. I try to bring those same qualities every time I play.
+        </p>
+
+        <ul class="traits-list">
+          <li><span class="trait-badge">Strength</span> Reading the game and positioning</li>
+          <li><span class="trait-badge">Strength</span> Aerial duels and set pieces</li>
+          <li><span class="trait-badge">Strength</span> Organizing the defensive line</li>
+          <li><span class="trait-badge">Role Model</span> Rúben Dias — Man City</li>
+          <li><span class="trait-badge">Philosophy</span> The best CB is the one you forget is there</li>
+        </ul>
+      </div>
+
+      <!-- Pitch diagram div (positioning div requirement) -->
+      <div class="pitch-diagram">
+        <h3>Formation — 4-3-3</h3>
+        <div class="pitch-svg-wrap">
+          <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+            <!-- Pitch background -->
+            <rect width="200" height="300" fill="#1a4a1a" rx="6"/>
+            <!-- Pitch lines -->
+            <rect x="10" y="10" width="180" height="280" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" rx="3"/>
+            <!-- Centre line -->
+            <line x1="10" y1="150" x2="190" y2="150" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+            <!-- Centre circle -->
+            <circle cx="100" cy="150" r="28" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <!-- Centre dot -->
+            <circle cx="100" cy="150" r="2" fill="rgba(255,255,255,0.4)"/>
+            <!-- Top penalty box -->
+            <rect x="45" y="10" width="110" height="55" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+            <!-- Top goal box -->
+            <rect x="70" y="10" width="60" height="22" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+            <!-- Bottom penalty box -->
+            <rect x="45" y="235" width="110" height="55" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+            <!-- Bottom goal box -->
+            <rect x="70" y="268" width="60" height="22" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+
+            <!-- ── Attacking players (top, light blue) ── -->
+            <!-- 3 Forwards -->
+            <circle cx="50"  cy="55"  r="9" fill="#5b85d0"/>
+            <circle cx="100" cy="45"  r="9" fill="#5b85d0"/>
+            <circle cx="150" cy="55"  r="9" fill="#5b85d0"/>
+            <!-- 3 Midfielders -->
+            <circle cx="60"  cy="105" r="9" fill="#5b85d0"/>
+            <circle cx="100" cy="98"  r="9" fill="#5b85d0"/>
+            <circle cx="140" cy="105" r="9" fill="#5b85d0"/>
+            <!-- 4 Defenders -->
+            <circle cx="35"  cy="155" r="9" fill="#5b85d0"/>
+            <!-- CB LEFT — highlighted as Conner's position -->
+            <circle cx="75"  cy="155" r="11" fill="#c8a96e" stroke="#ffffff" stroke-width="2"/>
+            <text x="75" y="159" text-anchor="middle" fill="#001F5B" font-size="8" font-weight="bold" font-family="Georgia, serif">CB</text>
+            <!-- CB RIGHT -->
+            <circle cx="125" cy="155" r="9" fill="#5b85d0"/>
+            <circle cx="165" cy="155" r="9" fill="#5b85d0"/>
+            <!-- GK -->
+            <circle cx="100" cy="210" r="9" fill="#002DB4"/>
+
+            <!-- Labels -->
+            <text x="100" y="32" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8" font-family="sans-serif">ATTACK</text>
+            <text x="100" y="178" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="8" font-family="sans-serif">DEFENSE</text>
+          </svg>
+        </div>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 14px; letter-spacing: 0.5px;">
+          Gold marker = Conner's position
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- ── Memories ── -->
+  <div class="memories-section">
+    <div id="memories" class="memories-inner">
+      <p class="section-label">04 — Memories</p>
+      <h2 class="section-title">Moments I'll Never Forget</h2>
+
+      <div class="memories-grid">
+
+        <div class="memory-card">
+          <div class="memory-year">2018</div>
+          <h3>Messi at the World Cup</h3>
+          <p>
+            I watched Lionel Messi play at the 2018 FIFA World Cup in Russia.
+            Seeing the greatest player who has ever lived perform on the biggest
+            stage in the world — in person — is something I will never stop thinking about.
+          </p>
+          <span class="memory-tag">Russia</span>
+        </div>
+
+        <div class="memory-card">
+          <div class="memory-year">HS</div>
+          <h3>Team Captain, Lone Peak</h3>
+          <p>
+            Being named captain of the Lone Peak High School team was the first time
+            I was formally trusted to lead a group of competitors. The responsibility
+            changed how I thought about what it means to show up for other people.
+          </p>
+          <span class="memory-tag">Utah 6A</span>
+        </div>
+
+        <div class="memory-card">
+          <div class="memory-year">2025</div>
+          <h3>BYU Intramural Champions</h3>
+          <p>
+            Winning the BYU intramural championship with a group of guys who became
+            some of my best friends at college. The level is different — the feeling is exactly
+            the same as any other trophy I've lifted.
+          </p>
+          <span class="memory-tag">BYU 2025</span>
+        </div>
+
+        <div class="memory-card">
+          <div class="memory-year">↗</div>
+          <h3>Friendships Built on the Pitch</h3>
+          <p>
+            Most of my closest friends came from soccer. There's no shortcut to that kind
+            of trust — it gets built over early morning practices, hard losses, and the
+            kind of shared struggle that bonds people for life.
+          </p>
+          <span class="memory-tag">Always</span>
+        </div>
+
+        <div class="memory-card">
+          <div class="memory-year">CB</div>
+          <h3>The Art of the Clean Sheet</h3>
+          <p>
+            There's a specific satisfaction that comes from finishing a match knowing
+            the other team never got through. As a center back, the clean sheet is
+            your trophy — quiet, invisible, and entirely yours.
+          </p>
+          <span class="memory-tag">On the Pitch</span>
+        </div>
+
+        <div class="memory-card">
+          <div class="memory-year">MC</div>
+          <h3>Watching City Win the Treble</h3>
+          <p>
+            The 2023 Champions League final. Manchester City completing one of the most
+            dominant seasons any club has ever produced. As a lifelong supporter,
+            it was a night that validated years of belief in this club.
+          </p>
+          <span class="memory-tag">Man City</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <p>Conner Jackson &nbsp;|&nbsp; BYU Sophomore</p>
+  </footer>
+
+</body>
+</html>
